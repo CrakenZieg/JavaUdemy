@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <!-- paquete donde estan las acciones -->
+    <constant name="struts.convention.default.parent.package" value="mx.com.gm.actions" />
+    <!-- paquete deonde estan las acciones -->
+    <package name="mx.com.gm.actions" extends="struts-default">
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+    </package>
+</struts>
+

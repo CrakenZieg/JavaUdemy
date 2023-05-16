@@ -1,0 +1,183 @@
+<!-- comentarios al final -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"> <!-- agregamos los tags de JSF -->
+    <head>
+        <title>Hola Mundo JSF</title>
+    </head>
+    <body>
+        <!-- creamos un formulario -->
+        <h:form>
+            <h:messages globalOnly="true" ></h:messages>
+            <table>
+                <tr>
+                    <!-- agregamos el label -->
+                    <td><h:outputLabel for="nombre" value="#{msgs['vacanteForm.nombre']}"></h:outputLabel></td>
+                    <!-- agregamos un espacion para ingresar texto -->
+                    <td><h:inputText id="nombre" required="true" value="#{candidato.nombre}"></h:inputText></td>
+                    <!-- agregamos una etiqueta de mensaje por si hay algun problema con el atributo -->
+                    <td><h:message for="nombre"></h:message></td>
+                </tr>
+                <tr>
+                    <!-- agregamos el label -->
+                    <td><h:outputLabel for="apellido" value="#{msgs['vacanteForm.apellido']}"></h:outputLabel></td>
+                    <!-- agregamos un espacion para ingresar texto -->
+                    <td><h:inputText id="apellido" required="true" value="#{candidato.apellido}"></h:inputText></td>
+                    <!-- agregamos una etiqueta de mensaje por si hay algun problema con el atributo -->
+                    <td><h:message for="apellido"></h:message></td>
+                </tr>
+                <tr>
+                    <!-- agregamos el label -->
+                    <td><h:outputLabel for="salarioDeseado" value="#{msgs['vacanteForm.salarioDeseado']}"></h:outputLabel></td>
+                    <!-- agregamos un espacion para ingresar texto -->
+                    <td><h:inputText id="salarioDeseado" required="true" value="#{candidato.salarioDeseado}">
+                            <f:validateLongRange minimum="50000" maximum="100000"/><!-- notar que la validacion va dentro de las etiquetas de input -->
+                    </h:inputText></td><!-- Va a hace la conversion a int directamente, ya que le pedimos un int en 'candidato.salarioDeseado' -->
+                    <!-- agregamos una etiqueta de mensaje por si hay algun problema con el atributo -->
+                    <td><h:message for="salarioDeseado"></h:message></td>
+                </tr>
+                <tr>
+                    <!-- agregamos el label -->
+                    <td><h:outputLabel for="fechaNaciemiento" value="#{msgs['vacanteForm.fechaNaciemiento']}"></h:outputLabel></td>
+                    <!-- agregamos un espacion para ingresar texto -->
+                    <td><h:inputText id="fechaNaciemiento" required="true" value="#{candidato.fechaNaciemiento}">
+                            <f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+                        </h:inputText></td>
+                    <!-- agregamos una etiqueta de mensaje por si hay algun problema con el atributo -->
+                    <td><h:message for="fechaNaciemiento"></h:message></td>
+                </tr>
+            </table>
+            <h:commandButton action="#{vacanteForm.enviar}" value="#{msgs['vacanteForm.enviar']}" /> 
+        </h:form>
+    </body>
+</html>
+<!-- 
+Comenzamos el proyecto de JSF (Java Server Faces) incluyendo log4j2 en 
+dependencies de pom.xml, log4j2 nos permite llevar un log del server. Tiene diferentes
+niveles de informacion que registrar, diferentes outputs para ella y tambien la 
+posibilidad de darle formato a la informacion que registra.
+Como usamos glassfish 6.X, posterior a 5, no debimos configurar JSF porque viene
+incluido.
+En WEB-INF debe exitir el archivo web.xml, en el que configuramos stage del proyecto
+nombre del server y cuando se carga, archivo de inicio (index.xhtml) y path generico
+de faces.
+JSF utiliza el concepto de Managed Beans, como sugiere son Beans (tienen constructor 
+vacio, atributos privados y Getters & Setters para cada uno de ellos). No están 
+obligados a extender ninguna clase. Baking Beans son los Managed Beans del lado del 
+servidor (backend), podriamos catalogarlos en Beans de Modelo o Control (MVC), de 
+soporte o helpers (un convertidor por ejemplo) o de utileria (para tareas genericas)
+Los Managed Beans se pueden declarar: 
+-usando el decorador @ManagedBean. 
+-como CDI(Contects and Dependency Inyection) y agregando @Named, pero debemos agregar un 
+archivo beans.xml en WEB-INF; CDI es mas flexible para administrarlos, los beans CDI
+estan asociados a un scope; CDI especifica la formaen que se iyectan, interceptan, 
+filtran u observan ciertos eventos; usa en concepto de inversion de control (es el
+framework el que decide como funcionan las cosas a partir de las respuestas que se
+piden de el)
+-usando el archivo faces-config.xml incluyendo los tags \<managed-bean> \</managed-bean> 
+en el.
+
+Los Managed beans tienen diferentes scopes para guardar informacion en forma de 
+MAP ({llave:valor, ...}) ellos son: 
+-Application
+-Session
+-View (persiste si es la misma vista, util para Ajax)
+-Request
+-Custom 
+(las anotaciones se encuentran en jakarta.faces.beans)
+CDI tiene diferentes scopes para guardar informacion en forma de MAP ({llave:valor, ...}) 
+ellos son: 
+-Application
+-Session
+-Conversation (persiste hasta concluir alguna tarea)
+-Request
+-Custom
+(las anotaciones se encuentran en jakarta.enterprise.context)
+
+La navegacion en JSF permite movernos entre diferentes paginas de la misma tecnologia,
+los tipos son:
+-Navegacion estatica: la siguiente pagina/vista esta definida por un nombre o 
+string fijo
+-Navegacion dinamica: la siguiente pagina/vista depende de la accion que ejecuta 
+el usuario, y el string de regreso del metodo Action ejecutado.
+
+La navegacion se puede configurar de varias formas:
+-Navegacion implicita: la salida especificada busca una pagina con un nombre identico
+al string de salida del directorio actual, con la mima extension de la pagina actual 
+(xhtml, jsp, etc)
+-Navegacion explicita: se define en el archivo faces-config.xml, hay que agregar 
+un elemento xml que indique cual es la peticion, cual es la salida y a que pagina
+se dirige.
+(la Implicita tiene preferencia, es decir, primero busca una pagina, si no la encuentra
+va al archivo faces-config)
+
+En la nav estatica el elemento que define la siguiente pagina a mostrar es un string
+y se le conoce salida u outcome; esta aplica cuando no hay que ejecutar condigo 
+Java del lado del servidor, solo dirigirse a esa pagina, tambien cuando no hay logica 
+para determinar la pagina siguiente
+
+En la nav dinamica el metodo action tiene la logica para determinar la salida u 
+outcome, implica usar Expression Language para llamar un #\{(bean).(metodo())} que nos
+devuelva el outcome
+
+En faces-config se crean las reglas de navegacion primero navigation-rule, primero 
+from-view-id, definimos luego los navigation-case, dentro de estos van from-outcome 
+y to-view-id
+
+Ciclo de Vida:
+Mediante lo4j2 vamos a poder ver el ciclo de vida de un JSF
+
+En JSF tenemos 6 fases:
+Restaurar la vista ( restore view ). En este paso se obtiene el árbol de componentes 
+correspondiente a la vista JSF de la petición. Si se ha generado antes se recupera, 
+y si es la primera vez que el usuario visita la página, se genera a partir de la 
+descripción JSF.
+Aplicar los valores de la petición ( apply request values ). Una vez obtenido el 
+árbol de componentes, se procesan todos los valores asociados a los mismos. Se 
+convierten todos los datos de la petición a tipos de datos Java y, para aquellos 
+que tienen la propiedad inmediate a cierta, se validan, adelantándose a la siguiente 
+fase.
+Procesar las validaciones ( process validations ). Se validan todos los datos. 
+Si existe algún error, se encola un mensaje de error y se termina el ciclo de vida, 
+saltando al último paso (renderizar respuesta).
+Actualizar los valores del modelo ( update model values ). Cuando se llega a esta 
+fase, todos los valores se han procesado y se han validado. Se actualizan entonces 
+las propiedades de los beans gestionados asociados a los componentes.
+Invocar a la aplicación ( invoke application) . Cuando se llega a esta fase, todas 
+las propiedades de los beans asociados a componentes de entrada ( input ) se han 
+actualizado. Se llama en este momento a la acción seleccionada por el usuario.
+Renderizar la respuesta ( render response ).
+
+Creamos en WEB-INF el archivo faces-config en donde vamos a configurar
+el archivo DebuggerListener como escucha de los cambios de fase y ademas dentro
+de la etiqueta faces-config van las direcciones de xmlns, xmlns:xsi y xsi:schemaLocation
+
+Vamos a introducir validadores desde xmlns:f, partes de la validacion se dan en el index, 
+otras en el el back
+
+Introducimos convertidores que, como el nombre indica, convierten tipos de datos 
+de uno a otro tipo, desde el modelo a la vista y viceversa. Hay convertidores
+genericos que funcionan como atributos dentro de las etiquetas 'h:', también se 
+pueden crear extendiendo la interfaz Converter y registrandolos en faces-config o 
+agregando la anotacion FacesConverter. Cuando es una clase nueva, debe Override el
+metodo getAsObject() o getAsString()
+
+Creamos el archivo mensajes.properties en 'other sources' para agregar los mensajes 
+en los diferentes idiomas, para poder internacionalizar nuestra web app. Basicamente
+va a reconocer el lenguaje del cliente y le va a devolver mensages es su idioma. 
+Estos se especifican en el archivo mensajes.properties, luego se "declaran" en 
+faces-config dentro de resource-bundle y se le asigna un nombre de variable para
+poder llamarlo dentro del xhtml. En este se los llama con una notacion parecida a
+la de array
+
+Eventos: 
+JSF provee 2 maneras de detectar cambios (value change) en los componenetes. Agregando 
+un atributo valueChangeListener a un componente o como elemento interno. Nos permiten 
+responder a eventos que suceden en la vista y procesarlo. Dentro del Managed Bean
+que escucha el evento debemos incluir un metodo action que respondera tal evento
+
+
+-->
+ 

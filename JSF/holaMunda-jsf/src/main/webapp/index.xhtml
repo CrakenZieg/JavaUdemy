@@ -1,0 +1,59 @@
+<!-- comentarios al final -->
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"> <!-- agregamos los tags de JSF -->
+    <head>
+        <title>Hola Mundo JSF</title>
+    </head>
+    <body>
+        <h:outputLabel value="Hola Mundo desde JSF" />
+    </body>
+</html>
+<!-- 
+Comenzamos el proyecto de JSF (Java Server Faces) incluyendo log4j2 en 
+dependencies de pom.xml, log4j2 nos permite llevar un log del server. Tiene diferentes
+niveles de informacion que registrar, diferentes outputs para ella y tambien la 
+posibilidad de darle formato a la informacion que registra.
+Como usamos glassfish 6.X, posterior a 5, no debimos configurar JSF porque viene
+incluido.
+En WEB-INF debe exitir el archivo web.xml, en el que configuramos stage del proyecto
+nombre del server y cuando se carga, archivo de inicio (index.xhtml) y path generico
+de faces.
+JSF utiliza el concepto de Managed Beans, como sugiere son Beans (tienen constructor 
+vacio, atributos privados y Getters & Setters para cada uno de ellos). No están 
+obligados a extender ninguna clase. Baking Beans son los Managed Beans del lado del 
+servidor (backend), podriamos catalogarlos en Beans de Modelo o Control (MVC), de 
+soporte o helpers (un convertidor por ejemplo) o de utileria (para tareas genericas)
+Los Managed Beans se pueden declarar: 
+-usando el decorador @ManagedBean. 
+-como CDI(Contects and Dependency Inyection) y agregando @Named, pero debemos agregar un 
+archivo beans.xml en WEB-INF; CDI es mas flexible para administrarlos, los beans CDI
+estan asociados a un scope; CDI especifica la formaen que se iyectan, interceptan, 
+filtran u observan ciertos eventos; usa en concepto de inversion de control (es el
+framework el que decide como funcionan las cosas a partir de las respuestas que se
+piden de el)
+-usando el archivo faces-config.xml incluyendo los tags \<managed-bean> \</managed-bean> 
+en el.
+
+Los Managed beans tienen diferentes scopes para guardar informacion en forma de 
+MAP ({llave:valor, ...}) ellos son: 
+-Application
+-Session
+-View (persiste si es la misma vista, util para Ajax)
+-Request
+-Custom 
+(las anotaciones se encuentran en jakarta.faces.beans)
+CDI tiene diferentes scopes para guardar informacion en forma de MAP ({llave:valor, ...}) 
+ellos son: 
+-Application
+-Session
+-Conversation (persiste hasta concluir alguna tarea)
+-Request
+-Custom
+(las anotaciones se encuentran en jakarta.enterprise.context)
+
+Las anotaciones para cada alcance se encuentran en diferentes paquetes
+-->
+ 

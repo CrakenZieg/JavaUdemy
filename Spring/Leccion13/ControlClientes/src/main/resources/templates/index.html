@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Inicio</title>
+    </head>
+    <body>
+<!-- llamamos a llenar el header con el extraido de la plantilla, especificamente su etiqueta de header -->
+        <header th:replace="~{layout/plantilla :: header}"></header>
+        <section th:replace="~{layout/botonesAgregar :: botonesAgregar}"></section>
+        <section th:replace="~{layout/agregarCliente :: agregarCliente}"></section>
+        <section th:replace="~{layout/listadoClientes :: listadoClientes}"></section>
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+        
+    </body>
+</html>
+<!-- 
+Thymeleaf es compatible con HTML5 
+Para manejar informacion dinamica incluimos en la etiqueta html el atributo xmlns
+de thymeleaf
+
+Con Sping Security de por si podemos agregar una capa de seguridad, agregando simplemente 
+la libreria automaticamente nos genera un usuario y un pass, en este caso:
+user
+680a4ceb-bc5b-4291-a906-945e9712f7b0
+
+Es personalizable
+-->

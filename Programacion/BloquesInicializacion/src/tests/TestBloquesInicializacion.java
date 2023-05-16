@@ -1,0 +1,20 @@
+
+package tests;
+
+import domain.Persona;
+
+public class TestBloquesInicializacion {
+   
+    public static void main(String[] args) {
+        
+        Persona persona1 = new Persona();
+        System.out.println("persona1 = " + persona1);
+        System.out.println("");
+        System.out.println("Ya no se ejecuta el bloque estatico");
+        System.out.println("");
+        Persona persona2 = new Persona();
+        System.out.println("persona2 = " + persona2);
+        
+    }
+    
+}

@@ -1,0 +1,8 @@
+ClienteEMS\servicio\Sumar.class
+ClienteSumaWS.class
+ClienteEMS\servicio\ServicioSumarImplService.class
+ClienteEMS\servicio\ServicioSumarWS.class
+testclientews\TestServicioSumarWS.class
+ClienteEMS\servicio\ObjectFactory.class
+ClienteEMS\servicio\package-info.class
+ClienteEMS\servicio\SumarResponse.class

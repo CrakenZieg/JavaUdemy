@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:fragment="head">
+        <title>Platilla</title>
+        <meta charset="UTF-8"/>
+<!-- Bootstrap (css) -->
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<!-- Font-awesome -->
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+<!-- Jquery (lo necesita bootstrap, creo) -->
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<!-- Popper (lo necesita bootstrap, creo) -->
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<!-- Bootstrap (Js) -->
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </head>
+<!-- incluimos los links de la librerias de bootstrap y de fontawesome -->
+    <body>
+<!-- fragment permite utilizar la etiqueta en otras paginas -->
+        <header th:fragment="header">
+<!-- con th : text le indicamos que use lo de la variable y lo ponga dentro de la etiqueta h1 
+            <h1 th:text="#{plantilla.titulo}">Control de Clientes</h1>-->
+<!-- bootstrap aplica mobile first (se ajusta a moviles primero) luego a pantallas mas grandes -->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+            <div class="container">
+                <a th:href="@{/}" class="navbar-brand" th:text="#{plantilla.titulo}">Control de Clientes</a>
+<!-- estando en nav, el toggler es el menu desplegable, id de navbarCollapse -->
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+<!-- Lista con elementos del nav -->
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class ="navbar-nav">
+                        <li class="nav-itm px-2">
+                            <a th:href="@{/}" class="nav-lin active" th:text="#{barra.titulo}">Inicio</a>
+                        </li>
+                    </ul>
+                    <ul sec:authorize="isAuthenticated()" class="navbar-nav ms-auto">
+                        <li class="nav-item me-3">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-user"></i>
+                                <span th:text="#{barra.bienvenido}">Bienvenido:</span>
+                                <span sec:authentication="name">Usuario</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="POST" th:action="@{/logout}">
+                                <a href="#" onclick="this.parentNode.submit();" class="nav-link">
+                                    <i class="fas fa-user-times"></i>[[#{barra.salir}]]
+                                </a>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<section id="main-header" class="py-2 bg-info text-white">
+    <div class="container">
+        <div class="row">
+            <div class="con-md-6">
+                <h1>
+                    <i class="fas fa-cog"></i> [[#{plantilla.titulo}]]
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+        </header> 
+        <footer th:fragment="footer" class="bg-warning text-white mt-5 p-5">
+            <div class="container">
+                <div class="col">
+                    <p class="lead text-center">
+                        <!-- llamamos al link indicando los idiomas -->
+                        <a th:href="@{/?lang=es}">ES</a>|
+                        <a th:href="@{/?lang=en}">EN</a>
+                        <!-- mediante doble corchete le indicamos que lo de adentro es variable -->
+                        <span> [[#{plantilla.pie-pagina}]]&copy; <a href="http://www.globalmentoring.com.mx" target="_blank">[[#{plantilla.Ubaldo}]]</a></span>
+                    </p>
+                </div>
+<!-- logout 
+                <form method="POST" th:action="@{/logout}">
+                    <b>User:</b><span sec:authentication="name">Usuario que hizo login</span>|
+                    <b>Roles:</b><span sec:authentication="principal.authorities">Roles del usuario</span>|
+                    <input type="submit" name="Logout" th:value="Logout"/>
+                        con Js 
+                    <a href="#" onclick="this.parentNode.submit();">Logout</a>
+                </form>-->
+            </div>
+        </footer>
+    </body>
+</html>

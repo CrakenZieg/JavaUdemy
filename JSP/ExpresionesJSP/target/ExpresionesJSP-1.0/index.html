@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejemplo Expresiones JSP</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Ejemplo Expresiones JSP</h1>
+        <br>
+        <a href="Expresiones.jsp">Link al JSP de Expresiones</a>
+        <br>
+        <h4>Formulario HTML</h4>
+<!-- no es buena practica ni conveniente llamar directamente JSPs desde las HTML o los JSP,
+el objetivo es que lo procese primero un servlet y este administre que JSP llamar-->
+        <form name="form1" action="ProcesaFormulario.jsp">
+            Usuario: <input type="text" name="usuario">
+            <br>
+            Password: <input type="password" name="password">
+            <br>
+            <input type="submit" value="Enviar">
+        </form>
+    </body>
+</html>
+<!--La primera vez que llamamos a alguno de los JSP es que se traduecn en servlets, por lo
+que el primer llamado tarda en responder-->

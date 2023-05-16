@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inicio</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Inicio</h1>
+<!-- Indicamos con una cadena cualquiera que usaremos luego al configurar en el archivo
+struts.xml que al llamarla se deberá ejecutar la clase HolaMundoAction, esta es la 
+implementacion del modelo MVC de struts2-->
+     <a href="saludar" >Ir a Struts2</a>
+    </body>
+</html>
+
+<!-- 
+Eliminamos  el archivo struts de resources ya que vamos a utilizar las convenciones,
+es decir, para cada path que utilicemos tendremos en el paquete beans.actions 
+(o struts, struts2 o action) un bean con el mismo nombre y un jsp en la carpeta 
+content dentro de WEB-INF 
+pero debemos agregar las librerias de convenciones de struts y de ASM al POM
+-->

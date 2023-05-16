@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+    http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd" version="2.2" >
+    
+    <persistence-unit name="PersonaPU" transaction-type="JTA">
+        
+        <jta-data-source>jdbc/personaDb</jta-data-source>
+<!-- agregamos el driver de jdbc/mysql para glassfish y lo copiamos en la carpeta glassfish 
+levantamos glassfish, vamos a admin console y luego a jdbc para configurar el pool de conecciones a la DDBB 
+luego configuramos el recurso dentro jdbc -->
+        <!--<class>mx.com.gm.sga.domain.Persona</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/testjpa?useSSL=false&amp;useTimezone=true&amp;serverTimezone=UTC" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="admin" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.MysqlDataSource" />
+            <property name="eclipselink.logging.level.sql" value="FINE" />
+            <property name="eclipselink.loggin.parameters" value="true" />
+        </properties>-->
+    </persistence-unit>
+</persistence>

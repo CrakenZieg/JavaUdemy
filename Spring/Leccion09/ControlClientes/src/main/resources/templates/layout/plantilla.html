@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Platilla</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+<!-- fragment permite utilizar la etiqueta en otras paginas -->
+        <header th:fragment="header">
+<!-- con th : text le indicamos que use lo de la variable y lo ponga dentro de la etiqueta h1 -->
+            <h1 th:text="#{plantilla.titulo}">Control de Clientes</h1>
+        </header> 
+        <footer th:fragment="footer">
+            <div>
+                <br/>
+<!-- llamamos al link indicando los idiomas -->
+                <a th:href="@{/?lang=es}">ES</a>|
+                <a th:href="@{/?lang=en}">EN</a>
+<!-- mediante doble corchete le indicamos que lo de adentro es variable -->
+                <span>[[#{plantilla.pie-pagina}]] <a href="http://www.globalmentoring.com.mx" target="_blank">[[#{plantilla.Ubaldo}]]</a></span>
+            </div>
+        </footer>
+    </body>
+</html>

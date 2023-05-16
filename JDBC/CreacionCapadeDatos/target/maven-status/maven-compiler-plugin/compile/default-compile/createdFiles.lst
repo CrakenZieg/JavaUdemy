@@ -1,0 +1,5 @@
+personas\dto\PersonaDTO.class
+personas\jdbc\Conexion.class
+personas\jdbc\PersonaDao.class
+personas\jdbc\PersonaDaoJDBC.class
+personas\test\TestPersonas.class

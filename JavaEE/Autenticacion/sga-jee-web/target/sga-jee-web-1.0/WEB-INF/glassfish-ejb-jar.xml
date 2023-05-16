@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+vamos a especificar el nombre del ejb y en endpoint del webservice y la autenticacion que es necesaria
+-->
+
+<!DOCTYPE glasfish-ejb-jar PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 EJB 3.1//EN"
+"http://glasfish.org/dtds/glasfish-ejb-jar_3_1-1.dtd">
+<glassfish-ejb-jar>
+    <enterprise-beans>
+        <ejb>
+            <ejb-name>PersonaServiceImpl</ejb-name>
+            <webservice-endpoint>
+                <port-component-name>PersonaServiceImpl</port-component-name>
+                <login-config>
+                    <auth-method>BASIC</auth-method>
+                </login-config>
+            </webservice-endpoint>
+        </ejb>
+    </enterprise-beans>
+</glassfish-ejb-jar>

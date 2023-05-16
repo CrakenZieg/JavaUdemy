@@ -1,0 +1,6 @@
+mx\com\gm\sga\domain\Usuario.class
+mx\com\gm\sga\service\PersonaServiceRemote.class
+mx\com\gm\sga\cliente\PruebaManejoTransacciones.class
+SgaJee2.class
+mx\com\gm\sga\domain\Persona.class
+mx\com\gm\sga\cliente\ClientePersonaService.class

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inicio</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <a href="personas">Entrar al sistema</a>
+    </body>
+</html>
+
+<!-- 
+OGNL Object-Graph Navigation Language establece la comunicacion entre los JSP y 
+las clases Java.
+
+Al iniciar una peticion (y para la respuesta), el framework de struts tiene varios 
+interceptores que llevan a cabo las tareas necesarias para que, por ejemplo, se 
+recuperen los valores asociados a un formulario, para validar datos, internacionalizacion, 
+recuperar datos de un archivo de propiedades, etc.
+
+Una vez que se procesan los interceptores, llega la solicitud a la clase Action,
+se ejecuta execute() y entra en juego OGNL. Cualquier valor que venga de la Vista 
+a la clase Action se almacena por struts en el Action Context. Dentro tenemos el 
+ValueStack que almacena no solo la informacion que va directamente a la clase Action,
+tambien va la informacion relacionada con el obj request, session o application 
+(como en servlets).
+
+Finalizada la accion, se invoca el resultado result, comienza el regreso de la 
+peticion, y otra vez OGNL toma los valores a desplegar en la vista del Action Context
+y finalizar la peticion. 
+
+Las taglib al importarse permiten el mapeo entre los atributos de las clases y 
+las tags que accedan a ellos y viceversa, ello todo mediante los getter y setter 
+de los mismos. No necesesariamente se debe acceder a atributos de clases Action, 
+tambien se puede acceder a clases asociadas a ella.
+
+La clase Persona incluye un atributo de tipo domicilio que a su vez posee atributos
+privados a los que los JSP accederan gracias a OGNL.
+
+TAGS: Los tags de struts se guardan en un archivo llamado strut-tags.tld, dentro 
+de struts2 core, META-INF. Hay etiquetas para control, bucles, datos, formularios, 
+interfaz de usuario, etc.
+-->

@@ -1,0 +1,9 @@
+ClienteEMS\servicio\ListarPersonas.class
+ClienteEMS\servicio\PersonaServiceImplService.class
+ClienteEMS\servicio\ListarPersonasResponse.class
+testClienteWS\TestPersonaServiceWS.class
+ClienteEMS\servicio\ObjectFactory.class
+ClienteEMS\servicio\PersonaServiceWs.class
+ClienteSGAWS.class
+ClienteEMS\servicio\package-info.class
+ClienteEMS\servicio\Persona.class

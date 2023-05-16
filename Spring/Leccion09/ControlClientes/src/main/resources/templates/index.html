@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+<!-- llamamos a llenar el header con el extraido de la plantilla, especificamente su etiqueta de header -->
+        <header th:replace="~{layout/plantilla :: header}"/>
+         <!--<div>
+            <h1 style='color: red; background:green'>Hacete una pagina vo'</h1>
+            <!- -<p th:text="${mensaje}"></p>
+es el mensaje que viene desde la clase ControladorInicio, se lo pasamos desde el obj model 
+            <p th:text="${saludo}"></p>
+ es el mensaje que viene desde la clase ControladorInicio, se lo pasamos desde el obj model, pero es el que 
+    esta definido en application.properties - ->
+        </div>-->
+        <div>
+            <a th:href="@{/agregar}">[[#{persona.agregar}]]</a><!-- es @ porque es un link y no data reemplazada -->
+        </div>
+        <!-- creamos un if que compruba si la lista no está vacia o es nula -->
+        <div th:if="${personas!=null and !personas.empty}">
+            <table border="1">
+                <tr>
+                    <th>[[#{persona.Nombre}]]</th>
+                    <th>[[#{persona.Apellido}]]</th>
+                    <th>[[#{persona.Email}]]</th>
+                    <th>[[#{persona.Telefono}]]</th>
+                    <th>[[#{accion.Editar}]]</th>
+                    <th>[[#{accion.EliminarGET}]]</th>
+                    <th>[[#{accion.EliminarQueryParameter}]]</th>
+                </tr>
+        <!-- Analogo al forEach, ponemos la variable auxiliar ':' lista -->
+                <tr th:each="persona : ${personas}">
+                    <td th:text="${persona.nombre}"></td>
+                    <td th:text="${persona.apellido}"></td>
+                    <td th:text="${persona.email}"></td>
+                    <td th:text="${persona.telefono}"></td>
+                    <td><a th:href="@{/editar/}+${persona.idPersona}" th:text="#{accion.Editar}"/></td>     
+        <!-- pasado como GET -->
+                    <td><a th:href="@{/eliminar/}+${persona.idPersona}" th:text="#{accion.eliminarG}"/></td>
+        <!-- pasado como QueryParam -->
+                    <td><a th:href="@{/eliminar(idPersona=${persona.idPersona})}" th:text="#{accion.eliminarQ}"/></td>
+                </tr>
+                
+            </table>
+        </div>
+        <!-- si está vacia o es nula muestra un mensaje -->
+        <div th:if="${personas==null or personas.empty}">
+            <p>[[#{persona.ListaVacia}]]</p>
+        </div>
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+    </body>
+</html>
+<!-- 
+Thymeleaf es compatible con HTML5 
+Para manejar informacion dinamica incluimos en la etiqueta html el atributo xmlns
+de thymeleaf
+-->

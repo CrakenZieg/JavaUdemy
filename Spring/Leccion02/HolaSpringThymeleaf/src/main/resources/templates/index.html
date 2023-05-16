@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>
+            <h1 style='color: red; background:green'>Hacete una pagina vo'</h1>
+            <p th:text="${mensaje}"></p>
+<!-- es el mensaje que viene desde la clase ControladorInicio, se lo pasamos desde el obj model -->
+            <p th:text="${saludo}"></p>
+<!-- es el mensaje que viene desde la clase ControladorInicio, se lo pasamos desde el obj model, pero es el que 
+    esta definido en application.properties -->
+        </div>
+        <!-- creamos un if que compruba si la lista no está vacia o es nula -->
+        <div th:if="${personas!=null and !personas.empty}">
+            <table border="1">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                </tr>
+        <!-- Analogo al forEach, ponemos la variable auxiliar ':' lista -->
+                <tr th:each="persona : ${personas}">
+                    <td th:text="${persona.nombre}"></td>
+                    <td th:text="${persona.apellido}"></td>
+                    <td th:text="${persona.email}"></td>
+                    <td th:text="${persona.telefono}"></td>
+                </tr>
+                
+            </table>
+        </div>
+        <!-- si está vacia o es nula muestra un mensaje -->
+        <div th:if="${personas==null or personas.empty}">
+            <p>La lista de personas está vacia!</p>
+        </div>
+    </body>
+</html>
+<!-- 
+Thymeleaf es compatible con HTML5 
+Para manejar informacion dinamica incluimos en la etiqueta html el atributo xmlns
+de thymeleaf
+-->

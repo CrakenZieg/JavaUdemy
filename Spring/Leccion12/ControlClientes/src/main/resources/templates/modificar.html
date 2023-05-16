@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>[[#{modificar.titulo}]]</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <h2>[[#{modificar.titulo}]]</h2>
+        <br/>
+<!-- Asociamos el formulario a un obj Persona -->
+        <div>
+            <form th:action="@{/guardar}" method="post" th:object="${persona}">
+<!-- usamos un campo oculto para poder compartir con este formulario el idPersona
+para que Spring sepa que estamos usando un objeto ya creado y no uno nuevo -->  
+                <input type="hidden" name="idPersona" th:field="*{idPersona}"/>
+                <br/>
+                <label for="nombre">[[#{persona.Nombre}]]:</label>
+                <input type="text" name="nombre" th:field="*{nombre}"/>
+                <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error Nombre</span>
+<!-- valida si hay errores en el campo, si lo hay en el atributo nombre, lo muestra, 
+el error que muestra es el que corresponde con el campo que le pasamos a la etiqueta errors-->
+                <br/>
+                <label for="apellido">[[#{persona.Apellido}]]:</label>
+                <input type="text" name="apellido" th:field="*{apellido}"/>
+                <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error Apellido</span>
+                <br/>
+                <label for="email">[[#{persona.Email}]]:</label>
+                <input type="text" name="email" th:field="*{email}"/>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error Email</span>
+                <br/>
+                <label for="telefono">[[#{persona.Telefono}]]:</label>
+                <input type="tel" name="telefono" th:field="*{telefono}"/>
+                <br/>
+                <input type="submit" name="guardar" th:value="#{modificar.guardar}"/>
+            </form>            
+        </div>
+        <br/>
+        <a th:href="@{/}">[[#{modificar.regresar}]]</a>
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+    </body>
+</html>

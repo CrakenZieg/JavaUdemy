@@ -1,0 +1,4 @@
+beans\HolaMundoEJBImpl.class
+HolaMundoEJB.class
+test\testHolaMundoEJB.class
+beans\HolaMundoEJBRemote.class

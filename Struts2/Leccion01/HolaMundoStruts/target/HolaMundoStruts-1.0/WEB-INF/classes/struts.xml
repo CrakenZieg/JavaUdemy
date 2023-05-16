@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="struts2" extends="struts-default">
+        <action name="saludar" class="beans.HolaMundoAction">
+            <result name="exito">/Saludos.jsp</result>
+        </action>
+    </package>
+</struts>
+
+<!-- 
+-Definimos el tipo de documento como configuracion de struts
+-Luego abrimos el tag struts
+-Indicamos el paquete default en este caso, y en general sera el mismo para la 
+mayoria de las aplicaciones
+-Dentro del tag action indicamos que al accionar el href saludar debemos instanciar
+la clase HolaMundoAction dentro de la carpeta beans, lo cual ejecutara, a su vez
+su metodo execute
+-Despues indicamos que si el retorno es la cadena exito, devuelva el jsp saludos
+-->

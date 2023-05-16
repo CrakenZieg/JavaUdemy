@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"> <!-- agregamos los tags de JSF -->
+    <h:head>
+        <title>Proyecto de Bolsa de Trabajo</title>
+        <h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet><!-- Agreamos el archivo styles usando la etiqueta de JSF -->
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <div id="header-wrapper">
+                <ui:insert name="top"><!-- De haber contenido diferente para esta seccion, se reemplazara a partir de aqui -->
+                    <div id="header">
+                        <div id="logo">
+                            <h1>Bolsa de Trabajo</h1>
+                        </div>
+                    </div>
+                </ui:insert>
+            </div>
+        
+            <div id="page">
+                <ui:insert name="content">
+                    Contenido
+                </ui:insert>
+            </div>
+
+            <div id="footer">
+                <ui:insert name="bottom">
+                    Derechos Reservados - GlobalMentoring.com.mx - UniversidadJava.com
+                </ui:insert>
+            </div>
+        </div>
+    </h:body>
+</html>
