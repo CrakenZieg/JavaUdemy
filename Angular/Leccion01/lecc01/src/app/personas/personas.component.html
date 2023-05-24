@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div style="text-align: center;">
+        <h1>Listado de personas</h1>
+<!--
+Indicamos a angular que la propiedad 'disabled' esta bindeada al atributo deshabilitar de nuestro componente
+(click) le dice a angular que ante el evento de 'click' llame al metodo 'agregarPersona()' del componente
+-->
+        <button class="btn btn-primary" (click)="agregarPersona()" [disabled]="deshabilitar">Agregar Persona</button>
+        <p>{{mensaje}}</p>
+        <app-persona></app-persona>
+      </div>
+    </div>
+  </div>
+</div>
