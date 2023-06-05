@@ -1,0 +1,13 @@
+<div class="col">
+  <div class="card">
+    <div class="card-header">
+      <h2>Persona {{i+1}}:</h2>
+    </div>
+    <div class="card-body">
+      {{persona.nombre}}, {{persona.apellido}}
+    </div>
+    <div class="card-footer">
+      <input type="checkbox" (click)="emitirSaludo()"/>
+    </div>
+  </div>
+</div>

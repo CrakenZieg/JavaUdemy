@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col">
+    <label>Operando a</label>
+    <input type="number" class="form-control" [(ngModel)]='operandoA'/>
+  </div>
+    <div class="col">
+    <label>Operando b</label>
+    <input type="number" class="form-control" [(ngModel)]='operandoB'/>
+  </div>
+</div>
+<hr>
+<div class="row" >
+  <div class="col d-inline-flex" style="justify-content: space-around; align-items: center;">
+    <button class="btn btn-primary" (click)="onSuma()">Sumar</button>
+
+    <button class="btn btn-primary" (click)="onResta()">Restar</button>
+
+    <button class="btn btn-primary" (click)="onMultiplicacion()">Multiplicar</button>
+
+    <button class="btn btn-primary" (click)="onDivision()">Dividir</button>
+  </div>
+</div>
+

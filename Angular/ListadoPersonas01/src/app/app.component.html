@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+  <hr/>
+  <app-formulario
+    (personaCreada)="personaAgregada($event)"
+  ></app-formulario>
+  <hr/>
+  <div class="row row-cols-auto">
+<!--
+  el componente app le envia los inputs a los componentes hijos mediante []
+  index es reconocido por angular como indice
+-->
+    <app-persona
+    *ngFor="let personaList of personas; let ind = index"
+    [persona] = "personaList"
+    [i] = "ind"
+    >
+    </app-persona>
+  </div>
+</div>

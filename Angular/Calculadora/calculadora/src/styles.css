@@ -1,0 +1,33 @@
+body {
+  background-color: blanchedalmond;
+  border-color: black;
+  color:indigo
+}
+.card {
+  background-color: bisque;
+  border-color: black
+}
+.card-header {
+  background: burlywood;
+  color: darkslateblue;
+  border-color: black
+}
+.form-control {
+  background-color: blanchedalmond;
+  border-color: black;
+}
+.form-control:hover,.form-control:focus{
+  background-color: peru;
+  border-color: black;
+}
+
+.btn-primary{
+  background-color: brown;
+  border-color: black;
+}
+.btn-primary:hover{
+  background-color: darkred;
+  border-color: black;
+}
+
+

@@ -1,0 +1,39 @@
+<div class="container">
+  <form class="row" (ngSubmit)="f.form.valid && agregarRegistro()" #f="ngForm">
+<!-- hacemos una variable local haciendo referencia al obj de angular ngForm para lograr evaluar nuestro formulario -->
+    <div class="col">
+<!-- ngClass asigna la clase si se da el booleano -->
+      <select [ngClass]="{redFocus:tipo==='egreso'}" class="form-select" name="tipo" id="" [(ngModel)]="tipo" required>
+        <option value="ingreso">Ingreso</option>
+        <option value="egreso">Egreso</option>
+      </select>
+    </div>
+    <div class="col">
+      <input [ngClass]="{redFocus:tipo==='egreso'}"
+        type="text"
+        name="descripcion"
+        placeholder="Agregar descripcion"
+        id="descripcion"
+        class="form-control"
+        [(ngModel)]="descripcion"
+        required
+      />
+    </div>
+    <div class="col">
+      <input [ngClass]="{redFocus:tipo==='egreso'}"
+        type="number"
+        name="valor"
+        placeholder="valor"
+        id="valor"
+        class="form-control"
+        [(ngModel)]="valor"
+        required
+      />
+    </div>
+    <div class="col">
+      <button type="submit" class="btn btn-warning" [ngClass]="{redFocus:tipo==='egreso'}">
+        Agregar
+      </button>
+    </div>
+  </form>
+</div>

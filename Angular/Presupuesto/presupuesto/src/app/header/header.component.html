@@ -1,0 +1,20 @@
+<div class="container" id="header">
+  <div class="row">
+    <div class="col-md-5">
+      <div id="titulo">
+        <h2>Presupuesto disponible</h2>
+        <h1>{{ presupuesto | currency : "ARS" : "symbol-narrow" }}</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <div id="ingresos">
+        <h4 id="ingresosLb">Ingresos:</h4><span class="right"><h4 id="ingresosVal">{{ ingresos | currency : "ARS" : "symbol-narrow" }}</h4><p id="porcentajeIN" >{{(egresos/ingresos)*100 | number:'1.0-0'}}%</p></span>
+      </div>
+      <div id="egresos">
+        <h4 id="egresosLb">Egresos:</h4><span class="right"><h4 id="egresosVal">{{ egresos | currency : "ARS" : "symbol-narrow" }}</h4><p id="porcentajeEG">{{(egresos/ingresos)*100 | number:'1.0-0'}}%</p></span>
+      </div>
+    </div>
+  </div>
+</div>

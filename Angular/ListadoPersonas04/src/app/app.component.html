@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+  <hr/>
+<!--(personaCreada)="personaAgregada($event)"
+  Este paso de evento de componente formulario a app ya no es necesario porque
+  el formulario usa directamente el service -->
+  <app-formulario></app-formulario>
+  <hr/>
+  <div class="row row-cols-4">
+<!--
+  el componente app le envia los inputs a los componentes hijos mediante []
+  index es reconocido por angular como indice
+-->
+    <app-persona
+    *ngFor="let personaList of personas; let ind = index"
+    [persona] = "personaList"
+    [i] = "ind"
+    >
+    </app-persona>
+  </div>
+</div>

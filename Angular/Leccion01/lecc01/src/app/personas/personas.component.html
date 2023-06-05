@@ -4,12 +4,30 @@
       <div style="text-align: center;">
         <h1>Listado de personas</h1>
 <!--
-Indicamos a angular que la propiedad 'disabled' esta bindeada al atributo deshabilitar de nuestro componente
+Indicamos a angular que la propiedad [disabled] esta bindeada al atributo deshabilitar de nuestro componente
+[] bindea del componente al HTML -> es Property Binding
 (click) le dice a angular que ante el evento de 'click' llame al metodo 'agregarPersona()' del componente
 -->
         <button class="btn btn-primary" (click)="agregarPersona()" [disabled]="deshabilitar">Agregar Persona</button>
-        <p>{{mensaje}}</p>
+        <p *ngIf="mostrarMensaje; else sinPersona">{{mensaje}} con el titulo de {{titulo}}</p>
+        <ng-template #sinPersona>
+          <p>No se ha agregado ninguna persona</p>
+        </ng-template>
         <app-persona></app-persona>
+<!--
+Si queremos capturar informacion tambien debemos bindear del HTML al componente
+() bindea desde el HTML al componente -> es Event Binding
+-->
+        <!-- <label>Titulo Persona</label>
+        <input type="text" class='form-control' (input)='modificarTitulo($event)'/>
+        <span>{{titulo}}</span> -->
+<!--
+Podemos capturar informacion directamente usando Two Way Binding despues de incorporar
+el FormsModule en app.module
+-->
+        <label>Titulo Persona</label>
+        <input type="text" class='form-control' [(ngModel)]='titulo'/>
+        <span>{{titulo}}</span>
       </div>
     </div>
   </div>

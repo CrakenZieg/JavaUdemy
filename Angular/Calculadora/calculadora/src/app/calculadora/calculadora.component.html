@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Aplicación Calculadora</h1>
+    </div>
+  </div>
+  <app-formulario
+        (resultado)="pasoResultado($event)"
+      ></app-formulario>
+  <hr>
+  <app-resultado
+  [resultado]="resultadoR"
+  >
+  </app-resultado>
+</div>
+

@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <table>
+        <thead>
+          <h2 style="color: #531210">Ingresos</h2>
+        </thead>
+        <tr *ngFor="let registro of ingresos">
+          <td>{{ registro.descripcion }}</td>
+          <td>
+            {{ registro.valor | currency : "ARS" : "symbol-narrow" }}
+            <button
+              type="button"
+              class="close"
+              aria-label="Close"
+              (click)="eliminar(registro)"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <table>
+        <thead>
+          <h2 style="color: #3a2e09">Egresos</h2>
+        </thead>
+        <tr *ngFor="let registro of egresos">
+          <td>{{ registro.descripcion }}</td>
+          <td>
+            {{ registro.valor | currency : "ARS" : "symbol-narrow" }}
+            <p id="porcentajeEG">
+              {{ porcentaje(registro) | number : "1.0-0" }}%
+            </p>
+            <button
+              type="button"
+              class="close"
+              aria-label="Close"
+              (click)="eliminar(registro)"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
