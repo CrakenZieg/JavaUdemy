@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elementos html</title>
+  </head>
+  <!-- Las fuentes se agregan en familia ya que si no encuentra una, pasa a la siguiente, etc -->
+  <body
+    style="
+      background-color: rgb(228, 226, 199);
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    "
+  >
+    <p>*Los titulos agregar saltos de linea</p>
+    <h1>Titulo h1</h1>
+    <h2>Titulo h2</h2>
+    <h3>Titulo h3</h3>
+    <h4>Titulo h4</h4>
+    <h5>Titulo h5</h5>
+    <h6>Titulo h6</h6>
+    <p>Primer linea -primer parrafo<br />Segunda linea-primer parrafo</p>
+    <hr />
+    <p>Primer linea -segundo parrafo<br />Segunda linea-segundo parrafo</p>
+    <hr />
+    <pre>
+        Con la etiqueta 'pre' podemos lograr que un texto respete el formato ingresado 
+    por nosotros el escribir
+                                    el texto
+    </pre>
+    <p>
+      <b>Texto en negrita</b><br /><strong
+        >Texto strong (importante de manera semantica)</strong
+      >
+      <br /><i>Texto en itálica</i
+      ><em>Texto enfático (enfático de manera semantica)</em> <br /><small
+        >Texto small</small
+      ><br /><mark>Texto resaltado</mark><br /><del
+        >Texto 'eliminado' (tachado)</del
+      >
+      <br /><ins>Texto insertado (subrayado)</ins><br />Texto en
+      <sub>subindice</sub> como en H<sub>2</sub>O <br />Texto en
+      <sup>superindice</sup> como en X<sup>2</sup>=-1 <br /><code
+        >Texto 'en código'</code
+      >
+      <br />&commat; = '& commat ;' (sin los espacios) la referencia a
+      caracteres nos permite introducirlos<br />
+      cuando podrían estar contraindicados en ciertos contextos (como puede
+      pasar con &aacute; en árbol)
+    </p>
+    <hr />
+    <a href="pagina.html" target="_blank"
+      >Etiqueta 'a' con href a página (_blank es para abrirlo en otra
+      pertaña)</a
+    >
+    <hr />
+    <a
+      href="mailto:roberto@mail.com?subject=(titulo del mail)&body=(cuerpo del mail)"
+      >mail to</a
+    >
+    <hr />
+    <h1>Imagenes</h1>
+    <p>
+      src puede recibir direcciones de archicos o urls <br />
+      Modificando width o height se ajusta proporcionalmente el otro atributo
+      <br />
+      El atributo de title se puede agregar a cualquier etiqueta para que <br />
+      despliegue un titulo al posar el cursor sobre la etiqueta
+    </p>
+    <img src="imagenes/html5.png" alt="html5" width="100.px" title="html5" />
+    <img src="imagenes/css3.png" alt="css3" width="100.px" title="css3" />
+    <img src="imagenes/javascript.png" alt="js" width="100.px" title="js" />
+  </body>
+</html>
