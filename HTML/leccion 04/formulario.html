@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Formulario html</title>
+    </head>
+    <body>
+        <h1>Formularios en html</h1>
+        <form method="POST">
+<!-- NOVALIDATE: evita que se valide el formulario, también se puede agregar un boton con atributo formnovalidate 
+para que se envie la informacion sin validar -->
+<!-- METHOD: Por default se utiliza el metodo get para enviar informacion al servidor, este incluye la informacion en la url,
+por eso utilizamos el metodo post que incluye la informacion en el cuerpo de la httpRequest -->
+<!-- ACTION: con el atributo de 'action' podemos determinar que sucede con la informacion al hacer submit -->
+<!-- TARGET: podemos determinar si usamos una nueva ventana o la misma -->
+<!-- AUTOCOMPLETE: podemos evitar que el autocompletado se use o no -->
+            <fieldset>
+                <legend>Datos: </legend>
+                <label for="idUnico">Id: </label><br />
+                <input
+                    type="text"
+                    id="idUnico"
+                    name="idUnico"
+                    value="1"
+                    readonly
+                    disabled
+                /> 
+<!-- Con readonly hacemos que no pueda modificarse ese campo, por ejemplo al ser algo recuperado de DDBB -->
+<!-- Con disabled logramos también evitar que se haga click en el, pero no se envia al servidor -->
+                <input type="hidden" id="sistema" name="sistema" value="SAP">
+<!-- con el type hidden podemos enviar datos al sevidor que no se hagan visibles a los usuarios -->
+                <br />
+                <label for="nombre">Nombre: </label><br />
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="nombre"
+                    required
+                />
+                <br />
+                <label for="apellido">Apellido: </label><br />
+                <input
+                    type="text"
+                    id="apellido"
+                    name="apellido"
+                    placeholder="apellido"
+                    required
+                />
+                <br />
+                <label for="email">Email: </label><br />
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="email"
+                    required
+                />
+                <br />
+                <label for="edad">Edad: </label><br />
+                <!-- con el atributo de 'step' podemos modificar la validacion de numeros decimales -->
+                <input type="number" id="edad" name="edad" required />
+                <br />
+                <label>Genero: </label><br />
+                <input
+                    type="radio"
+                    id="femenino"
+                    name="genero"
+                    value="femenino"
+                    required
+                />
+                <label for="femenino">Femenino</label>
+                <input
+                    type="radio"
+                    id="masculino"
+                    name="genero"
+                    value="masculino"
+                    required
+                />
+                <label for="masculino">Masculino</label>
+                <input
+                    type="radio"
+                    id="otro"
+                    name="genero"
+                    value="otro"
+                    required
+                />
+                <label for="otro">Otro</label>
+                <br />
+                <label>Fiambre: </label><br />
+                <input
+                    type="checkbox"
+                    id="mortadela"
+                    name="fiambre"
+                    value="mortadela"
+                />
+                <label for="mortadela">Mortadela</label>
+                <input
+                    type="checkbox"
+                    id="jamon"
+                    name="fiambre"
+                    value="jamon"
+                />
+                <label for="jamon">Jamon</label>
+                <input
+                    type="checkbox"
+                    id="queso"
+                    name="fiambre"
+                    value="queso"
+                />
+                <label for="queso">Queso</label>
+                <br />
+                <label for="bondi">Bondi: </label><br />
+                <select
+                    id="bondi"
+                    name="bondi"
+                    placeholder="bondi"
+                    multiple
+                    required
+                >
+                    <!-- multiple permite selecciona varios -->
+                    <option value="500">500</option>
+                    <option value="502" selected>502</option>
+                    <!-- selected lo pone por defecto -->
+                    <option value="509">509</option>
+                    <option value="516">516</option>
+                </select>
+                <br />
+                <label for="comentario">Comentario: </label><br />
+                <textarea
+                    name="comentario"
+                    id="comentario"
+                    cols="30"
+                    rows="3"
+                    placeholder="Comentario"
+                ></textarea>
+                <br />
+                <label for="password">Contraseña: </label><br />
+                <input type="password" id="password" name="password" required />
+                <br />
+                <input type="submit" value="Enviar" />
+                <br />
+                <input type="submit" formnovalidate="formnovalidate" value="Enviar sin validar" />
+                <br />
+                <input type="reset" value="Restablecer" />
+            </fieldset>
+        </form>
+    </body>
+</html>

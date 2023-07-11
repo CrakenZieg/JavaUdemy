@@ -1,0 +1,25 @@
+.titulo{
+    color: #f72585;
+    text-align: center;
+}
+.marco{
+    width: 100%;
+    height: 500px;
+    border: 1px solid #f72585;
+}
+.nav{
+    display: flex;    
+    justify-content:space-around;
+    align-items: center;    
+}
+.navItem{
+    color: darkred;
+    display: inline-block;    
+    border: 1px solid black;  
+    text-decoration: none;  
+    padding: 3px;
+}
+.navItem:hover{
+    background-color: black;
+    color: white;
+}

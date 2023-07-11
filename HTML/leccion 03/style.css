@@ -1,0 +1,180 @@
+/*inline sobreescibre-> en la pagina sobreescibre-> archivo externo*/
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(255, 218, 185);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+      'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;    
+}
+h1,h2,h3,h4,h5,h6 {
+    color:brown;
+    text-shadow: 2px 2px 3px rgba(210, 105, 30, 0.4);
+    margin:auto;
+    text-align: center;
+}
+p,pre {
+    color:darkred;
+    text-shadow: 1px 1px 1px rgba(210, 105, 30, 0.4);
+
+}
+hr {
+    color:black;
+}
+a{
+    text-shadow: 1px 1px 1px rgba(210, 105, 30, 0.4);
+    text-decoration: none;
+}
+a:link{
+    color:firebrick;
+}
+a:visited{
+    color:rgba(104, 20, 20, 0.486);    
+}
+a:hover{
+    color:black;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+}
+a:active{
+    color:red;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+}
+a img{
+    width: 100px;
+}
+a img:hover{
+    width: 105px;
+}
+#ezpecial:link,#ezpecial:visited{
+    background-color: #b5179e;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+#ezpecial:hover{
+    background-color: #f72585;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;    
+    display: inline-block;
+}
+#ezpecial:active{
+    background-color: #b5179d60;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;    
+    display: inline-block;
+}
+table{
+    border-collapse: collapse;
+}
+td{
+    border: 1px solid chocolate;    
+    border-collapse: collapse;
+    /*border-radius: 5px;*/
+    padding: 5px;
+    color:midnightblue;
+}
+th{
+    border: 1px solid midnightblue;
+}
+caption,th{
+    background-color:midnightblue;
+    color: bisque;
+}
+/*Modifica solo los tr pares*/
+tr:nth-child(even){
+    background-color: rgb(255, 189, 131);
+}
+/*cambiamos el icono*/
+ul{
+    list-style-type: square;
+}
+ul ul {
+    list-style-type: circle;
+}
+/*+++++creamos un nav+++++*/
+#navig{
+    list-style-type: none;
+    background-color: rgb(97, 50, 14);
+    overflow: hidden;/*generalmente se usa para incluir barras de scroll*/
+    width: auto;
+    margin:0;
+    padding:0 0 0 5px;
+}
+#navigItem{
+    float: left;/*flotan a la izquierda por lo que se acomodan a la derecha*/
+}
+#navigItem a{
+    display: block;/*se muestran como bloque*/
+    color: azure;
+    text-align: center;
+    padding:15px;
+}
+#navigItem a:hover{
+    background-color: rgb(27, 14, 4);
+}
+/*++++++++++++++++++++++++*/
+ol{
+    list-style: none;
+/*se reinicia cuando creamos la lista*/
+    counter-reset: contador;
+}
+ol li{
+/*se incrementa con cada item*/
+    counter-increment: contador;
+}
+ol li::before{
+/*agregamos texto antes de mostrar cada elemento e incluimos una funcion contador*/
+    content: 'Atributo Gato ' counter(contador) ': ';
+}
+span{
+    color:black; 
+    border: 1px solid black
+}
+div{
+    border: 2px ridge cornsilk;
+    background-color: rgb(97, 50, 14);
+}
+#titulo{
+    border: none;
+    color:#f72585;
+    text-align: center;
+    margin: 15px;
+    display: block;
+    margin: 15px 55px;
+    padding: 15px;
+}
+.tarjeta{    
+    border: 5px solid darkslategrey;
+    background-color: #f1faaa;
+    box-shadow: 2px 2px 3px 2px black ;
+    text-align: center;
+    display: block;
+    margin: 15px 55px;
+    padding: 15px;
+}
+.bloque{
+    border: none;    
+    width:100%;
+    padding: 1px 0px;
+}
+.comentario{
+    border: none;
+    color: forestgreen;
+}
+#final{
+    color: white;
+    text-align: start;
+    padding: 5px;
+    background-color: rgb(97, 50, 14);
+}
+#finalDiv{    
+    border: none;
+    background-color: rgb(97, 50, 14);
+}

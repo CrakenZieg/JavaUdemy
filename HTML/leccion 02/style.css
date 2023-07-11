@@ -1,0 +1,25 @@
+/*inline sobreescibre-> en la pagina sobreescibre-> archivo externo*/
+body{
+    background-color: peachpuff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+      'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+}
+h1,h2,h3,h4,h5,h6 {
+    color:brown;
+    text-shadow: 2px 2px 3px rgba(210, 105, 30, 0.4);
+    margin:auto;
+    text-align: center;
+}
+p,pre {
+    color:darkred;
+    text-shadow: 1px 1px 1px rgba(210, 105, 30, 0.4);
+
+}
+hr {
+    color:black
+
+}
+a{
+    color:firebrick;
+    text-shadow: 1px 1px 1px rgba(210, 105, 30, 0.4);
+}
