@@ -41,6 +41,12 @@ class Gerente extends Empleado{
 
 function imprimir(a){
     console.log(a.obtenerDetalles());
+    if(a instanceof Gerente){
+        console.log("Es un Gerente! Y del Departamento "+a._departamento);
+    } else if(a instanceof Empleado){
+        console.log("Es un empleado!");
+    }
+    
 }
 
 let gatito = new Empleado("peludito", 100);

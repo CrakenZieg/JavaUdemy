@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Atributos con Js</title>
+    </head>
+    <body>
+        <h1 id="titulo" onclick="cambiarTexto(this)">DOM</h1>
+        <button onclick="mostrar()">Mostrar</button>        
+        <br />
+        <img id="imagen" src="" alt="">
+        <script>
+            let bool1 = true;
+            let bool2 = true;
+            let direcciones = ['javascript.png','html5.png'];
+            function mostrar() {
+                if(bool1){
+                    document.getElementById('imagen').setAttribute('src', direcciones[1]);
+                    document.getElementById('titulo').style.color='red';
+                } else {
+                    document.getElementById('imagen').setAttribute('src', direcciones[0]);
+                    document.getElementById('titulo').style.color='yellow';
+                }
+                bool1 = !bool1;
+            }
+            function cambiarTexto(a){
+                if(bool2){
+                    a.innerHTML = 'Mensaje 1';
+                } else {
+                    a.innerHTML = 'Mensaje 2';
+                }
+                bool2 = !bool2;
+            }
+        </script>
+    </body>
+</html>

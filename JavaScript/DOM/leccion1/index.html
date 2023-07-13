@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM con Js</title>
+    <style>
+        .azul{
+            color:blue;
+        }
+    </style>
+</head>
+<!-- 
+    Vamos a agregar el codigo directamente en el html pero 
+    claramente se puede agregar en archivos aparte 
+-->
+<body>
+    <h1 id="h1">Jugando con DOM y Js</h1>
+    <p id="parrafo1" class="azul">Saludos!</p>
+    <p id="parrafo2" class="azul">Saludos!</p>
+    <script>
+// El script debe estar despues de los elementos que queremos manipular
+        console.log('Saludos desde la etiqueta <script>'); 
+// h1 = documento.(recuperamos el elem de id 'h1').(recuperamos el texto)
+        let h1 = document.getElementById('h1');      
+        console.log(h1.innerHTML);  
+        let parrafo = document.getElementById('parrafo1');      
+        console.log(parrafo.innerHTML); 
+        parrafo.innerHTML="cambiado, saludos!";
+//recuperamos todos los elementos con el tag 'p'
+        let parrafos = document.getElementsByTagName('p');
+        console.log(`numero de parrafos: ${parrafos.length}`);
+        for(let i = 0; i<parrafos.length; i++){
+            console.log(`Parrafo: ${i} -> ${parrafos[i].innerHTML}`);
+        }
+//recuperamos todos los elementos con la class 'azul'
+        let azules = document.getElementsByClassName('azul');
+//podriamos usar "document.querySelectorAll('p.azul');" 
+//para recuperar los elementos con tag 'p' y class 'azul'
+        console.log(`numero de azules: ${azules.length}`);
+        let j = 0;
+        for(let azul of azules){
+            console.log(`Azules: ${j++} -> ${azul.innerHTML}`);
+        }
+    
+    </script>
+</body>
+</html>

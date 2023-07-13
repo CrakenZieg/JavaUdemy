@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formulario">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" name="nombre" placeholder="nombre"><br>
+        <label for="apellido">Apellido:</label><br>
+        <input type="text" name="apellido" placeholder="apellido"><br>
+        <label for="telefono">Telefono:</label><br>
+        <input type="text" name="telefono" placeholder="telefono"><br>
+    </form>
+    <button onclick="mostrar()">Mostrar</button>
+<!-- en onclick llamamos a la funcion mostrar() -->
+    <div id="valores">
+
+    </div>
+    <script>
+        function mostrar(){
+        //recuperamos el formulario de id 'formulario' del documento y 
+        //lo asignamos a una variable llamada formulario
+            let formulario = document.forms['formulario'];
+            //let texto = '';
+            //for(let elem of formulario){
+            //    texto += elem.value +'<br/>';
+            //}
+            //document.getElementById('valores').innerHTML = texto;
+            let nombre = formulario['nombre'];
+            let apellido = formulario['apellido'];
+            let telefono = formulario['telefono'];
+            let texto = "Nombre: "+nombre.value +" "+ apellido.value+"<br/>"+"Telefono: "+telefono.value;
+            document.getElementById('valores').innerHTML = texto;
+        }
+    </script>
+</body>
+</html>
