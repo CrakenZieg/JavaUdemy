@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="" href="">
+    <title>Listado de Personas</title>
+</head>
+<body onload="mostrarPersonas()">
+    <div class="contenedor" id="cabecero">
+        <h1>Listado de Personas</h1>
+    </div>
+    <div class="contenedor">
+        <div class="elemento">
+            <ul id="personas">
+<!-- Con Js vamos a agregar los elementos de la lista usando la funcion 
+    mostrar personas que se va a ejecutar al cargar la pagina con el -->
+            </ul>
+        </div>
+    </div>
+    <div class="contenedor">
+        <div style="text-align: center;">
+            <button style="cursor:pointer" onclick="agregarPersona()">+</button>
+        </div>
+        <form id="forma">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" /><br>
+            <label for="apellido">Apellido:</label><br>
+            <input type="text" id="apellido" name="apellido" placeholder="Apellido" /><br>
+        </form>
+    </div>
+    <script src="js/persona.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

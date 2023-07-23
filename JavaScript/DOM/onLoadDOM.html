@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body onload="entrar()">
+    <h1>Manejo del DOM con Js</h1>
+    <br/>
+    <div id="mostrar"></div>
+    <script>
+        function entrar(){
+            alert('Cargando!');
+            let texto = '';
+//navigator en un obj definido en Js, en entorno web podemos accederlo inmediatamente
+//nos permite obtener informacion del navegador
+            if(navigator.cookieEnabled){
+                //alert('Que onda las cookies amigo!');
+                texto='Cookies habilitadas!';
+            } else {
+                texto='Cookies deshabilitadas!';
+            }
+            document.getElementById('mostrar').innerHTML = texto;
+        }
+    </script>
+</body>
+</html>

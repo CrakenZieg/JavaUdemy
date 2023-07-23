@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- Se ejecutan en el orden en que aparecen! -->
+    <h1 id="titulo" onmousedown="rojo(this)" onmouseup="verde(this)" onclick="black(this)"
+    >Manejo del DOM con Js</h1>
+    <br/>
+    <script>
+        function rojo(elem){ 
+            console.log('rojo');
+            elem.style.color = 'red';
+        }
+        function verde(elem){
+            console.log('verde');
+            elem.style.color = 'green';
+        }
+        function black(elem){
+            console.log('black');
+            elem.style.color = 'black';
+        }
+    </script>
+</body>
+</html>

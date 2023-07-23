@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Calculadora</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora app</h1>
+        <form action="" id="forma">
+            <div class="mb-3">
+                <label for="numA">Número A:</label>
+                <input type="number" class="form-control" name="numA" id="numA" placeholder="Ingresa el numero A"/>
+            </div><!-- class="form-control" agrega estilos para mejorar el input -->
+            <div class="mb-3">
+                <label for="numB">Número B:</label>
+                <input type="number" class="form-control" name="numB" id="numB" placeholder="Ingresa el numero B"/>   
+            </div>     
+        </form>
+        <div class="row mb-3">
+            <button type="submit" class="btn btn-primary mb-3 mx-2 col" onclick="sumar()">Sumar</button>
+            <button type="submit" class="btn btn-primary mb-3 mx-2 col" onclick="restar()">Restar</button>
+            <button type="submit" class="btn btn-primary mb-3 mx-2 col" onclick="multiplicar()">Multiplicar</button>
+            <button type="submit" class="btn btn-primary mb-3 mx-2 col" onclick="dividir()">Dividir</button>
+        </div>
+        <div id="resultado" class="mb3">
+            Resultado!
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

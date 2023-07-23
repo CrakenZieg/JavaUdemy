@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titulo" 
+    >Manejo del DOM con Js</h1>
+    <br/>
+    <form action="" id="formu">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" />
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" id="apellido" />
+    </form>
+    <script>
+// Tomamos como constante el elemento padre de los inputs
+        const formu = document.getElementById('formu');
+// le asignamos el evento, pero debemos agregar un parametro mas para indicar que 
+// se aplique/propague el listener tambien a sus componentes
+        formu.addEventListener('focus', (evento)=>{evento.target.style.background = 'pink'}, true);
+        formu.addEventListener('blur',(evento)=>{evento.target.style.background = 'white'}, true);  
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titulo" 
+    >Manejo del DOM con Js</h1>
+    <br/>
+    <label for="nombre">Nombre:</label>
+<!-- con eventListener podemos agregar eventos a los elementos desde Js -->
+    <input type="text" name="nombre" id="nombre" />
+    <label for="apellido">Apellido:</label>
+    <input type="text" name="apellido" id="apellido" />
+    <script>
+// En addEventListener solo hacemos referencia al evento, es decir 'ONfocus' -> 'focus'
+        document.getElementById('nombre').addEventListener('focus', 
+        (evento)=>{evento.target.style.background = 'pink'});
+        document.getElementById('nombre').addEventListener('blur',
+        (evento)=>{evento.target.style.background = 'white'});
+        document.getElementById('apellido').addEventListener('focus', 
+        (evento)=>{evento.target.style.background = 'pink'});
+        document.getElementById('apellido').addEventListener('blur', 
+        (evento)=>{evento.target.style.background = 'white'});
+    </script>
+</body>
+</html>

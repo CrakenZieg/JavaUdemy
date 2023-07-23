@@ -6,12 +6,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Atributos con Js</title>
     </head>
-    <body>
+<!-- onload se ejecuta mientras/cuando se carga la pagina, podemos utilizarlo, 
+    entre otras coasas, para revisar politica de cookies -->
+    <body onload="entrar()">
         <h1 id="titulo" onclick="cambiarTexto(this)">DOM</h1>
         <button onclick="mostrar()">Mostrar</button>        
         <br />
         <img id="imagen" src="" alt="">
+        <br />
+        <div>
+            <p id="contenido"></p>
+        </div>
         <script>
+            function entrar(){
+                alert('Cargando!')
+            }
             let bool1 = true;
             let bool2 = true;
             let direcciones = ['javascript.png','html5.png'];
@@ -25,6 +34,7 @@
                 }
                 bool1 = !bool1;
             }
+//al definir 'onclick' en un elemento este elemento es el contexto 'this'
             function cambiarTexto(a){
                 if(bool2){
                     a.innerHTML = 'Mensaje 1';
@@ -32,6 +42,12 @@
                     a.innerHTML = 'Mensaje 2';
                 }
                 bool2 = !bool2;
+            }
+// podemos agregar asociaciones a eventos del DOM directamente desde JS, no necesariamente
+// trabajando con el html
+            document.getElementById('imagen').onclick = mostrarDiv;
+            function mostrarDiv(){
+                document.getElementById('contenido').innerHTML = 'Hiciste click en la imagen!';
             }
         </script>
     </body>
